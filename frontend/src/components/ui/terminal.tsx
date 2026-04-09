@@ -230,18 +230,18 @@ export const Terminal = ({
     <div
       ref={containerRef}
       className={cn(
-        "border-border bg-background/25 z-0 h-full max-h-[400px] w-full max-w-lg rounded-xl border",
+        "z-0 h-full max-h-[400px] w-full max-w-lg rounded-[1.6rem] border border-white/10 bg-black/35 shadow-[0_24px_60px_rgba(0,0,0,0.28)]",
         className,
       )}
     >
-      <div className="border-border flex flex-col gap-y-2 border-b p-4">
+      <div className="flex flex-col gap-y-2 border-b border-white/8 p-4">
         <div className="flex flex-row gap-x-2">
-          <div className="h-2 w-2 rounded-full bg-red-500"></div>
-          <div className="h-2 w-2 rounded-full bg-yellow-500"></div>
-          <div className="h-2 w-2 rounded-full bg-green-500"></div>
+          <div className="h-2 w-2 rounded-full bg-[#8a0e1c]"></div>
+          <div className="h-2 w-2 rounded-full bg-[#d6bf92]"></div>
+          <div className="h-2 w-2 rounded-full bg-white/45"></div>
         </div>
       </div>
-      <pre className="p-4">
+      <pre className="p-4 text-white/82">
         <code className="grid gap-y-1 overflow-auto">{wrappedChildren}</code>
       </pre>
     </div>

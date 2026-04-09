@@ -6,25 +6,28 @@ import { env } from "@/env";
 
 export function Header() {
   return (
-    <header className="container-md fixed top-0 right-0 left-0 z-20 mx-auto flex h-16 items-center justify-between backdrop-blur-xs">
-      <div className="flex items-center gap-2">
-        <a href="https://github.com/bytedance/deer-flow" target="_blank">
-          <h1 className="font-serif text-xl">DeerFlow</h1>
+    <header className="container-md fixed top-0 right-0 left-0 z-30 mx-auto px-4 py-4">
+      <div className="performance-panel flex items-center justify-between rounded-full px-5 py-3 text-white">
+        <a
+          href="https://github.com/bytedance/deer-flow"
+          target="_blank"
+          className="flex items-center gap-3"
+        >
+          <div className="h-2 w-2 rounded-full bg-[#8a0e1c]" />
+          <div>
+            <div className="performance-wordmark text-[0.7rem]">
+              Deer<span>Flow</span>
+            </div>
+            <div className="mt-1 text-[0.62rem] tracking-[0.32em] text-white/42 uppercase">
+              SuperAgent Harness
+            </div>
+          </div>
         </a>
-      </div>
-      <div className="relative">
-        <div
-          className="pointer-events-none absolute inset-0 z-0 h-full w-full rounded-full opacity-30 blur-2xl"
-          style={{
-            background: "linear-gradient(90deg, #ff80b5 0%, #9089fc 100%)",
-            filter: "blur(16px)",
-          }}
-        />
         <Button
           variant="outline"
           size="sm"
           asChild
-          className="group relative z-10"
+          className="performance-chip group rounded-full border-white/12 bg-white/4 px-4 text-white hover:bg-white/9"
         >
           <a href="https://github.com/bytedance/deer-flow" target="_blank">
             <GitHubLogoIcon className="size-4" />
@@ -34,7 +37,6 @@ export function Header() {
           </a>
         </Button>
       </div>
-      <hr className="from-border/0 via-border/70 to-border/0 absolute top-16 right-0 left-0 z-10 m-0 h-px w-full border-none bg-linear-to-r" />
     </header>
   );
 }

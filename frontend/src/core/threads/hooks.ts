@@ -493,11 +493,8 @@ export function useThreads(
 
 export function useDeleteThread() {
   const queryClient = useQueryClient();
-  const apiClient = getAPIClient();
   return useMutation({
     mutationFn: async ({ threadId }: { threadId: string }) => {
-      await apiClient.threads.delete(threadId);
-
       const response = await fetch(
         `${getBackendBaseURL()}/api/threads/${encodeURIComponent(threadId)}`,
         {
@@ -528,6 +525,9 @@ export function useDeleteThread() {
     },
     onSettled() {
       void queryClient.invalidateQueries({ queryKey: ["threads", "search"] });
+    },
+    onError(error) {
+      toast.error(getStreamErrorMessage(error));
     },
   });
 }

@@ -37,7 +37,7 @@ export default function ChatsPage() {
           <header className="flex shrink-0 items-center justify-center pt-8">
             <Input
               type="search"
-              className="h-12 w-full max-w-(--container-width-md) text-xl"
+              className="performance-panel h-12 w-full max-w-(--container-width-md) rounded-[1.25rem] border-white/8 px-4 text-xl"
               placeholder={t.chats.searchChats}
               autoFocus
               value={search}
@@ -51,10 +51,13 @@ export default function ChatsPage() {
                   <Link
                     key={thread.thread_id}
                     href={pathOfThread(thread.thread_id)}
+                    className="block"
                   >
-                    <div className="flex flex-col gap-2 border-b p-4">
+                    <div className="performance-panel mb-3 flex flex-col gap-2 rounded-[1.35rem] border-white/8 p-4">
                       <div>
-                        <div>{titleOfThread(thread)}</div>
+                        <div className="font-medium">
+                          {titleOfThread(thread)}
+                        </div>
                       </div>
                       {thread.updated_at && (
                         <div className="text-muted-foreground text-sm">

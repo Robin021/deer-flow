@@ -9,9 +9,9 @@ import { WhatsNewSection } from "@/components/landing/sections/whats-new-section
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen w-full bg-[#0a0a0a]">
+    <div className="dark performance-shell performance-grid bg-background text-foreground min-h-screen w-full">
       <Header />
-      <main className="flex w-full flex-col">
+      <main className="flex w-full flex-col pt-20">
         <Hero />
         <CaseStudySection />
         <SkillsSection />

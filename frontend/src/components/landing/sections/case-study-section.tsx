@@ -48,46 +48,47 @@ export function CaseStudySection({ className }: { className?: string }) {
   return (
     <Section
       className={className}
+      eyebrow="Proof"
       title="Case Studies"
-      subtitle="See how DeerFlow is used in the wild"
+      subtitle="A few examples of DeerFlow handling research, code, media, and structured analysis inside one operating loop."
     >
-      <div className="container-md mt-8 grid grid-cols-1 gap-4 px-20 md:grid-cols-2 lg:grid-cols-3">
-        {caseStudies.map((caseStudy) => (
+      <div
+        id="case-studies"
+        className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3"
+      >
+        {caseStudies.map((caseStudy, index) => (
           <Link
             key={caseStudy.title}
             href={pathOfThread(caseStudy.threadId) + "?mock=true"}
             target="_blank"
+            className="block"
           >
-            <Card className="group/card relative h-64 overflow-hidden">
+            <Card className="performance-panel group/card relative h-[22rem] gap-0 overflow-hidden rounded-[1.75rem] border-white/10 bg-black/10 py-0">
               <div
                 className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat transition-all duration-300 group-hover/card:scale-110 group-hover/card:brightness-90"
                 style={{
                   backgroundImage: `url(/images/${caseStudy.threadId}.jpg)`,
                 }}
-              ></div>
+              />
+              <div className="absolute inset-0 z-0 bg-linear-to-b from-black/10 via-black/15 to-black/90 transition-opacity duration-300 group-hover/card:opacity-95" />
+              <div className="absolute top-5 left-5 z-10">
+                <div className="performance-chip rounded-full px-3 py-1 text-[0.64rem] font-semibold tracking-[0.28em] text-white/72 uppercase">
+                  Case {String(index + 1).padStart(2, "0")}
+                </div>
+              </div>
               <div
                 className={cn(
-                  "flex h-full w-full translate-y-[calc(100%-60px)] flex-col items-center",
-                  "transition-all duration-300",
-                  "group-hover/card:translate-y-[calc(100%-128px)]",
+                  "relative z-10 flex h-full flex-col justify-end px-6 py-6 transition-transform duration-300",
+                  "group-hover/card:-translate-y-1",
                 )}
               >
-                <div
-                  className="flex w-full flex-col p-4"
-                  style={{
-                    background:
-                      "linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%)",
-                  }}
-                >
-                  <div className="flex flex-col gap-2">
-                    <h3 className="flex h-14 items-center text-xl font-bold text-shadow-black">
-                      {caseStudy.title}
-                    </h3>
-                    <p className="box-shadow-black overflow-hidden text-sm text-white/85 text-shadow-black">
-                      {caseStudy.description}
-                    </p>
-                  </div>
-                </div>
+                <div className="performance-rule mb-5 opacity-55" />
+                <h3 className="max-w-[13ch] text-2xl leading-tight font-semibold text-white">
+                  {caseStudy.title}
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-white/68">
+                  {caseStudy.description}
+                </p>
               </div>
             </Card>
           </Link>

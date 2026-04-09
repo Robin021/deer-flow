@@ -24,7 +24,10 @@ export function WorkspaceContainer({
   ...props
 }: React.ComponentProps<"div">) {
   return (
-    <div className={cn("flex h-screen w-full flex-col", className)} {...props}>
+    <div
+      className={cn("flex h-screen w-full flex-col bg-transparent", className)}
+      {...props}
+    >
       {children}
     </div>
   );
@@ -46,7 +49,7 @@ export function WorkspaceHeader({
   return (
     <header
       className={cn(
-        "top-0 right-0 left-0 z-20 flex h-16 shrink-0 items-center justify-between gap-2 border-b backdrop-blur-sm transition-[width,height] ease-out group-has-data-[collapsible=icon]/sidebar-wrapper:h-12",
+        "workspace-toolbar top-0 right-0 left-0 z-20 flex h-16 shrink-0 items-center justify-between gap-2 px-2 transition-[width,height] ease-out group-has-data-[collapsible=icon]/sidebar-wrapper:h-12",
         className,
       )}
       {...props}
@@ -90,13 +93,13 @@ export function WorkspaceHeader({
           </BreadcrumbList>
         </Breadcrumb>
       </div>
-      <div className="pr-4">
+      <div className="pr-2">
         <Tooltip content={t.workspace.githubTooltip}>
           <a
             href="https://github.com/bytedance/deer-flow"
             target="_blank"
             rel="noopener noreferrer"
-            className="opacity-75 transition hover:opacity-100"
+            className="workspace-surface-button inline-flex rounded-full px-3 py-2 opacity-84 transition hover:opacity-100"
           >
             <GithubIcon className="size-6" />
           </a>
@@ -114,7 +117,7 @@ export function WorkspaceBody({
   return (
     <main
       className={cn(
-        "relative flex min-h-0 w-full flex-1 flex-col items-center",
+        "relative flex min-h-0 w-full flex-1 flex-col items-center bg-transparent",
         className,
       )}
       {...props}

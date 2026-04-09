@@ -384,7 +384,7 @@ export function InputBox({
     <div ref={promptRootRef} className="relative">
       <PromptInput
         className={cn(
-          "bg-background/85 rounded-2xl backdrop-blur-sm transition-all duration-300 ease-out *:data-[slot='input-group']:rounded-2xl",
+          "workspace-composer performance-panel rounded-[2rem] transition-all duration-300 ease-out *:data-[slot='input-group']:rounded-[1.75rem]",
           className,
         )}
         disabled={disabled}
@@ -445,7 +445,7 @@ export function InputBox({
                       <GraduationCapIcon className="size-3" />
                     )}
                     {context.mode === "ultra" && (
-                      <RocketIcon className="size-3 text-[#dabb5e]" />
+                      <RocketIcon className="size-3 text-[#d6bf92]" />
                     )}
                   </div>
                   <div
@@ -570,7 +570,7 @@ export function InputBox({
                           <RocketIcon
                             className={cn(
                               "mr-2 size-4",
-                              context.mode === "ultra" && "text-[#dabb5e]",
+                              context.mode === "ultra" && "text-[#d6bf92]",
                             )}
                           />
                           <div
@@ -752,7 +752,7 @@ export function InputBox({
               </ModelSelectorContent>
             </ModelSelector>
             <PromptInputSubmit
-              className="rounded-full"
+              className="workspace-submit rounded-[1.05rem]"
               disabled={disabled}
               variant="outline"
               status={status}
@@ -776,7 +776,7 @@ export function InputBox({
           <div className="absolute -top-20 right-0 left-0 z-20 flex items-center justify-center">
             <div className="flex items-center gap-2">
               {followupsLoading ? (
-                <div className="text-muted-foreground bg-background/80 rounded-full border px-4 py-2 text-xs backdrop-blur-sm">
+                <div className="performance-chip text-muted-foreground rounded-full px-4 py-2 text-xs">
                   {t.inputBox.followupLoading}
                 </div>
               ) : (
@@ -790,7 +790,7 @@ export function InputBox({
                   ))}
                   <Button
                     aria-label={t.common.close}
-                    className="text-muted-foreground cursor-pointer rounded-full px-3 text-xs font-normal"
+                    className="performance-chip text-muted-foreground cursor-pointer rounded-full px-3 text-xs font-normal"
                     variant="outline"
                     size="sm"
                     type="button"
@@ -855,7 +855,7 @@ function SuggestionList() {
   return (
     <Suggestions className="min-h-16 w-fit items-start">
       <ConfettiButton
-        className="text-muted-foreground cursor-pointer rounded-full px-4 text-xs font-normal"
+        className="performance-chip text-muted-foreground cursor-pointer rounded-full px-4 text-xs font-normal"
         variant="outline"
         size="sm"
         onClick={() => handleSuggestionClick(t.inputBox.surpriseMePrompt)}

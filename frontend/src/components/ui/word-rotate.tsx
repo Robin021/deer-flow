@@ -11,6 +11,7 @@ interface WordRotateProps {
   duration?: number;
   motionProps?: MotionProps;
   className?: string;
+  colors?: string[];
 }
 
 export function WordRotate({
@@ -23,6 +24,7 @@ export function WordRotate({
     transition: { duration: 0.3, ease: "easeOut" },
   },
   className,
+  colors = ["#f6efe3", "#d6bf92", "#8a0e1c"],
 }: WordRotateProps) {
   const [index, setIndex] = useState(0);
 
@@ -43,7 +45,7 @@ export function WordRotate({
           className={cn(className)}
           {...motionProps}
         >
-          <AuroraText speed={3} colors={["#efefbb", "#e9c665", "#e3a812"]}>
+          <AuroraText speed={3} colors={colors}>
             {words[index]}
           </AuroraText>
         </motion.h1>

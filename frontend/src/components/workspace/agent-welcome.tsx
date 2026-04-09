@@ -20,17 +20,17 @@ export function AgentWelcome({
   return (
     <div
       className={cn(
-        "mx-auto flex w-full flex-col items-center justify-center gap-2 px-8 py-4 text-center",
+        "mx-auto flex w-full flex-col items-center justify-center gap-4 px-8 py-5 text-center",
         className,
       )}
     >
-      <div className="bg-primary/10 flex h-12 w-12 items-center justify-center rounded-full">
+      <div className="performance-panel flex h-16 w-16 items-center justify-center rounded-[1.55rem] border-white/70">
         <BotIcon className="text-primary h-6 w-6" />
       </div>
-      <div className="text-2xl font-bold">{displayName}</div>
-      {description && (
-        <p className="text-muted-foreground max-w-sm text-sm">{description}</p>
-      )}
+      <div className="workspace-display text-foreground max-w-2xl text-[2.3rem] md:text-[2.85rem]">
+        {displayName}
+      </div>
+      {description && <p className="workspace-copy max-w-sm">{description}</p>}
     </div>
   );
 }

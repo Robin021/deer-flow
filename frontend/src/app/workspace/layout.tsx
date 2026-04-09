@@ -33,12 +33,14 @@ export default function WorkspaceLayout({
   return (
     <QueryClientProvider client={queryClient}>
       <SidebarProvider
-        className="h-screen"
+        className="workspace-shell h-screen"
         open={open}
         onOpenChange={handleOpenChange}
       >
         <WorkspaceSidebar />
-        <SidebarInset className="min-w-0">{children}</SidebarInset>
+        <SidebarInset className="min-w-0 bg-transparent">
+          {children}
+        </SidebarInset>
       </SidebarProvider>
       <CommandPalette />
       <Toaster position="top-center" />

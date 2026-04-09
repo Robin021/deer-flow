@@ -12,19 +12,18 @@ export function SandboxSection({ className }: { className?: string }) {
   return (
     <Section
       className={className}
+      eyebrow="Runtime Cell"
       title="Agent Runtime Environment"
       subtitle={
         <p>
-          We give DeerFlow a &quot;computer&quot;, which can execute commands,
-          manage files, and run long tasks — all in a secure Docker-based
-          sandbox
+          DeerFlow ships with a controllable computer: commands, files, browser,
+          and long tasks running inside a secure Docker-based sandbox.
         </p>
       }
     >
-      <div className="mt-8 flex w-full max-w-6xl flex-col items-center gap-12 lg:flex-row lg:gap-16">
-        {/* Left: Terminal */}
-        <div className="w-full flex-1">
-          <Terminal className="h-[360px] w-full">
+      <div className="flex w-full flex-col items-stretch gap-6 lg:flex-row">
+        <div className="performance-panel w-full rounded-[2rem] p-4 lg:flex-1">
+          <Terminal className="h-[360px] w-full rounded-[1.5rem] border-white/8 bg-black/35">
             {/* Scene 1: Build a Game */}
             <TypingAnimation>$ cat requirements.txt</TypingAnimation>
             <AnimatedSpan delay={800} className="text-zinc-400">
@@ -68,29 +67,29 @@ export function SandboxSection({ className }: { className?: string }) {
           </Terminal>
         </div>
 
-        {/* Right: Description */}
-        <div className="w-full flex-1 space-y-6">
+        <div className="performance-panel w-full rounded-[2rem] p-8 text-white lg:flex-1">
           <div className="space-y-4">
-            <p className="text-sm font-medium tracking-wider text-purple-400 uppercase">
-              Open-source
+            <p className="text-[0.68rem] font-semibold tracking-[0.3em] text-[#d6bf92] uppercase">
+              Open-source Runtime
             </p>
-            <h2 className="text-4xl font-bold tracking-tight lg:text-5xl">
+            <h2 className="performance-title max-w-[10ch] text-4xl lg:text-5xl">
               <a
                 href="https://github.com/agent-infra/sandbox"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="hover:text-[#d6bf92]"
               >
                 AIO Sandbox
               </a>
             </h2>
           </div>
 
-          <div className="space-y-4 text-lg text-zinc-400">
+          <div className="space-y-4 text-base leading-7 text-white/66 md:text-lg">
             <p>
               We recommend using{" "}
               <a
                 href="https://github.com/agent-infra/sandbox"
-                className="underline"
+                className="underline decoration-[#8a0e1c] underline-offset-4"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -101,22 +100,24 @@ export function SandboxSection({ className }: { className?: string }) {
             </p>
           </div>
 
-          {/* Feature Tags */}
-          <div className="flex flex-wrap gap-3 pt-4">
-            <span className="rounded-full border border-zinc-800 bg-zinc-900 px-4 py-2 text-sm text-zinc-300">
+          <div className="mt-8 grid gap-3 sm:grid-cols-2">
+            <span className="performance-chip rounded-full px-4 py-3 text-sm text-white/72">
               Isolated
             </span>
-            <span className="rounded-full border border-zinc-800 bg-zinc-900 px-4 py-2 text-sm text-zinc-300">
+            <span className="performance-chip rounded-full px-4 py-3 text-sm text-white/72">
               Safe
             </span>
-            <span className="rounded-full border border-zinc-800 bg-zinc-900 px-4 py-2 text-sm text-zinc-300">
+            <span className="performance-chip rounded-full px-4 py-3 text-sm text-white/72">
               Persistent
             </span>
-            <span className="rounded-full border border-zinc-800 bg-zinc-900 px-4 py-2 text-sm text-zinc-300">
+            <span className="performance-chip rounded-full px-4 py-3 text-sm text-white/72">
               Mountable FS
             </span>
-            <span className="rounded-full border border-zinc-800 bg-zinc-900 px-4 py-2 text-sm text-zinc-300">
+            <span className="performance-chip rounded-full px-4 py-3 text-sm text-white/72">
               Long-running
+            </span>
+            <span className="performance-chip rounded-full px-4 py-3 text-sm text-white/72">
+              Browser + MCP
             </span>
           </div>
         </div>

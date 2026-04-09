@@ -90,13 +90,13 @@ export default function AgentChatPage() {
               "absolute top-0 right-0 left-0 z-30 flex h-12 shrink-0 items-center gap-2 px-4",
               isNewThread
                 ? "bg-background/0 backdrop-blur-none"
-                : "bg-background/80 shadow-xs backdrop-blur",
+                : "workspace-toolbar",
             )}
           >
             {/* Agent badge */}
-            <div className="flex shrink-0 items-center gap-1.5 rounded-md border px-2 py-1">
+            <div className="workspace-inline-badge flex shrink-0 items-center gap-1.5 rounded-full px-3 py-1.5">
               <BotIcon className="text-primary h-3.5 w-3.5" />
-              <span className="text-xs font-medium">
+              <span className="text-xs font-medium tracking-[0.04em]">
                 {agent?.name ?? agent_name}
               </span>
             </div>
@@ -107,6 +107,7 @@ export default function AgentChatPage() {
             <div className="mr-4 flex items-center">
               <Tooltip content={t.agents.newChat}>
                 <Button
+                  className="workspace-surface-button"
                   size="sm"
                   variant="secondary"
                   onClick={() => {
@@ -144,7 +145,7 @@ export default function AgentChatPage() {
                 <div className="absolute -top-4 right-0 left-0 z-0">
                   <div className="absolute right-0 bottom-0 left-0">
                     <TodoList
-                      className="bg-background/5"
+                      className="performance-panel bg-white/55"
                       todos={thread.values.todos ?? []}
                       hidden={
                         !thread.values.todos || thread.values.todos.length === 0
@@ -154,7 +155,7 @@ export default function AgentChatPage() {
                 </div>
 
                 <InputBox
-                  className={cn("bg-background/5 w-full -translate-y-4")}
+                  className={cn("w-full -translate-y-4")}
                   isNewThread={isNewThread}
                   threadId={threadId}
                   autoFocus={isNewThread}

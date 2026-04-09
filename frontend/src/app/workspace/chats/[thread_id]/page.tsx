@@ -79,7 +79,7 @@ export default function ChatPage() {
               "absolute top-0 right-0 left-0 z-30 flex h-12 shrink-0 items-center px-4",
               isNewThread
                 ? "bg-background/0 backdrop-blur-none"
-                : "bg-background/80 shadow-xs backdrop-blur",
+                : "workspace-toolbar",
             )}
           >
             <div className="flex w-full items-center text-sm font-medium">
@@ -112,7 +112,7 @@ export default function ChatPage() {
                 <div className="absolute -top-4 right-0 left-0 z-0">
                   <div className="absolute right-0 bottom-0 left-0">
                     <TodoList
-                      className="bg-background/5"
+                      className="performance-panel bg-white/55"
                       todos={thread.values.todos ?? []}
                       hidden={
                         !thread.values.todos || thread.values.todos.length === 0
@@ -121,7 +121,7 @@ export default function ChatPage() {
                   </div>
                 </div>
                 <InputBox
-                  className={cn("bg-background/5 w-full -translate-y-4")}
+                  className={cn("w-full -translate-y-4")}
                   isNewThread={isNewThread}
                   threadId={threadId}
                   autoFocus={isNewThread}
